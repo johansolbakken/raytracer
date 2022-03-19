@@ -3,7 +3,8 @@
 namespace Renderer
 {
 
-    Camera::Camera(Point3 lookfrom, Point3 lookat, Vec3 vup, double aspect_ratio, double vfov, double aperture, double focus_dist)
+    Camera::Camera(Point3 lookfrom, Point3 lookat, Vec3 vup, double aspect_ratio, double vfov, double aperture, double focus_dist,double shutterOpenTime, double shutterCloseTime)
+    : m_ShutterOpenTime(shutterOpenTime), m_ShutterCloseTime(shutterCloseTime)
     {
         m_AspectRatio = aspect_ratio;
 
@@ -31,6 +32,6 @@ namespace Renderer
 
         return Ray(
             m_Origin + offset,
-            m_LowerLeftCorner + s * m_Horizontal + t * m_Vertical - m_Origin - offset);
+            m_LowerLeftCorner + s * m_Horizontal + t * m_Vertical - m_Origin - offset, random_double(m_ShutterOpenTime, m_ShutterCloseTime));
     }
 }

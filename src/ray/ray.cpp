@@ -7,8 +7,8 @@ Ray::Ray()
 
 }
 
-Ray::Ray(const Point3& origin, const Vec3& direction)
-: m_Origin(origin), m_Direction(direction)
+Ray::Ray(const Point3& origin, const Vec3& direction, double time)
+: m_Origin(origin), m_Direction(direction), m_Time(time)
 {
 
 }

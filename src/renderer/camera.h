@@ -8,7 +8,7 @@ namespace Renderer
     class Camera
     {
     public:
-        Camera(Point3 lookfrom, Point3 lookat, Vec3 vup, double aspect_ratio, double vfov, double aperture, double focus_dist);
+        Camera(Point3 lookfrom, Point3 lookat, Vec3 vup, double aspect_ratio, double vfov, double aperture, double focus_dist, double shutterOpenTime = 0, double shutterCloseTime = 0);
         Ray GetRay(double u, double v) const;
 
         double GetAspectRatio() const { return m_AspectRatio; }
@@ -26,5 +26,8 @@ namespace Renderer
 
         Vec3 m_U, m_V, m_W;
         double m_LensRadius;
+
+        double m_ShutterOpenTime; //time0
+        double m_ShutterCloseTime; // time1
     };
 }
