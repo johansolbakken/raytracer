@@ -30,4 +30,21 @@ namespace Object
 
         return hit_anything;
     }
+
+    bool HittableList::BoundingBox(double time0, double time1, BVH::AABB &output_box) const
+    {
+        if (m_Objects.empty()) return false;
+
+        BVH::AABB temp_box;
+        bool first_box = true;
+
+        for (const auto& object : m_Objects)
+        {
+            if (!object->BoundingBox(time0, time1, temp_box)) return false;
+            output_box = first_box ? temp_box : SurroundingBox(output_box, temp_box);
+            first_box = false;
+        }
+
+        return true;
+    }
 }

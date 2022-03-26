@@ -27,8 +27,7 @@ namespace Materials
         else
             direction = refract(unit_direction, record.normal, refraction_ratio);
 
-        scattered = Ray(record.point, direction);
-
+        scattered = Ray(record.point, direction, inRay.Time());
         return true;
     }
     

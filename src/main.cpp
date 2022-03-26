@@ -1,49 +1,33 @@
-#include "common/core.h"
-
 #include "renderer/renderer.h"
-
 #include "scenes/random_scene.h"
+#include "scenes/two_spheres_scene.h"
+#include "scenes/two_noise_spheres_scene.h"
+#include "scenes/mirror_scene.h"
+#include "scenes/earth_scene.h"
 
+#include <string>
+#include <fstream>
 
-int main()
+int main(int argc, char* argv[])
 {
-    Scene::RandomScene scene;
+    std::string filename = "image.ppm";
+    if (argc > 1)
+    {
+        filename = std::string(argv[1]);
+    }
 
-    const auto aspect_ratio = 4.0 / 3.0;
+    std::ofstream ofstream(filename, std::ios::out);
 
-    // Camera
-    Point3 lookfrom(13, 2, 3);
-    Point3 lookat(0, 0, 0);
-    Vec3 vup(0, 1, 0);
-    auto dist_to_focus = 10.0;
-    auto aperture = 0.1;
+    Scene::EarthScene scene;
 
-    Renderer::Camera camera(lookfrom, lookat, vup, aspect_ratio, 20.0, aperture, dist_to_focus);
-
-    // Image
     Renderer::image_info renderer_info = {0};
-    renderer_info.width = 800;
-    renderer_info.recursion_depth = 4;
-    renderer_info.samples_per_pixel = 8;
+    renderer_info.width = 720;
+    renderer_info.recursion_depth = 25;
+    renderer_info.samples_per_pixel = 50;
 
     Renderer::Renderer renderer;
-    renderer.Render(camera, *scene.GetWorld(), renderer_info);
-    
-    /*auto pImage = renderer.RenderImage(camera, *scene.GetWorld(), renderer_info);
+    renderer.SetStream(&ofstream);
+    renderer.Render(*scene.GetCamera(), *scene.GetWorld(), renderer_info);
 
-    int image_width = pImage->GetWidth();
-    int image_height = pImage->GetHeight();
-
-    std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-
-    for (int j = image_height; j >= 0; j--)
-    {
-        for (int i = 0; i < image_width; i++)
-        {
-            Color data = pImage->Data()[i + j * image_height];
-            std::cout << data.x() << ' '
-                    << data.y() << ' '
-                    << data.z() << '\n';
-        }
-    }*/
+    ofstream.close();
 }

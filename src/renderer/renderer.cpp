@@ -46,7 +46,7 @@ namespace Renderer
         g = std::sqrt(scale * g);
         b = std::sqrt(scale * b);
 
-        out << static_cast<int>(256 * clamp(r, 0.0, 0.999)) << ' '
+        *m_Output << static_cast<int>(256 * clamp(r, 0.0, 0.999)) << ' '
             << static_cast<int>(256 * clamp(g, 0.0, 0.999)) << ' '
             << static_cast<int>(256 * clamp(b, 0.0, 0.999)) << '\n';
     }
@@ -55,7 +55,7 @@ namespace Renderer
     {
         int image_width = imageInfo.width;
         int image_height = static_cast<int>(image_width / camera.GetAspectRatio());
-        std::cout << "P3\n"
+        *m_Output<< "P3\n"
                   << image_width << ' ' << image_height << "\n255\n";
 
         for (int j = image_height; j >= 0; j--)

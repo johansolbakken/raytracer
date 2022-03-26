@@ -11,7 +11,7 @@ namespace Materials
     bool Metal::Scatter(const Ray &inRay, const hit_record &record, Color &attenuation, Ray &scattered) const
     {
         Vec3 reflected = reflect(unit_vector(inRay.Direction()), record.normal);
-        scattered = Ray(record.point, reflected + m_Fuzz * random_in_unit_sphere());
+        scattered = Ray(record.point, reflected + m_Fuzz * random_in_unit_sphere(), inRay.Time());
         attenuation = m_Albedo;
         return (dot(scattered.Direction(), record.normal) > 0);
     }

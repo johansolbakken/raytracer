@@ -1,6 +1,7 @@
 #pragma once
 
 #include "material.h"
+#include "textures/texture.h"
 
 namespace Materials
 {
@@ -8,10 +9,11 @@ namespace Materials
     {
     public:
         Lambertian(const Color& albedo);
+        Lambertian(std::shared_ptr<texture::Texture> albedo);
         virtual bool Scatter(const Ray &inRay, const hit_record &record, Color &attenuation, Ray &scattered) const override;
         
     private:
-        Color m_Albedo;
+        std::shared_ptr<texture::Texture> m_Albedo;
     };
 
 }

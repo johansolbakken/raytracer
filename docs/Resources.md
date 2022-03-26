@@ -6,3 +6,4 @@
 * Ray Tracing Resources from NVIDIA [here!](http://www.realtimerendering.com/raytracing.html)
 * Ray Tracing In one Weekend [here!](https://raytracing.github.io/books/RayTracingInOneWeekend.html#outputanimage)
 * Ray Tracing Next Week [here!](https://raytracing.github.io/books/RayTracingTheNextWeek.html#overview)
+

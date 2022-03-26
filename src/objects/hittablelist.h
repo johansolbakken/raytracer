@@ -17,6 +17,7 @@ namespace Object
         inline void Add(std::shared_ptr<Hittable> object) { m_Objects.push_back(object); }
 
         virtual bool Hit(const Ray &ray, double t_minimum, double t_maximum, hit_record &record) const override;
+        bool BoundingBox(double time0, double time1, BVH::AABB &output_box) const override;
 
     private:
         std::vector<std::shared_ptr<Hittable>> m_Objects;

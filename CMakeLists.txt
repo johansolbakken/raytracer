@@ -8,3 +8,5 @@ file(GLOB_RECURSE src "src/**")
 add_executable(${PROJECT_NAME} ${src})
 
 target_include_directories(${PROJECT_NAME} PUBLIC src)
+
+include_directories(${PROJECT_NAME} vendor)
