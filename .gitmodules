@@ -1,3 +1,0 @@
-[submodule "vendor/stb_image"]
-	path = vendor/stb_image
-	url = https://github.com/nothings/stb.git
