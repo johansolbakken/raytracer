@@ -1,8 +1,0 @@
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/CMakeFiles/rebuild_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/CMakeFiles/edit_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerLib/CMakeFiles/rebuild_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerLib/CMakeFiles/edit_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerLib/CMakeFiles/RayTracerLib.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerApp/CMakeFiles/rebuild_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerApp/CMakeFiles/edit_cache.dir
-/Users/johansolbakken/Developer/raytracer/cmake-build-release/RayTracerApp/CMakeFiles/RayTracerApp.dir

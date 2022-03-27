@@ -4,8 +4,9 @@ A ray tracer.
 
 ## Images created with this ray tracer
 
-![](products/earth.ppm)
-![](products/cornells_box.ppm)
-![](products/cornells_box_fog.ppm)
-![](products/lights.ppm)
-![](products/checkered_spheres.ppm)
+![](products/ultimate.png)
+![](products/earth.png)
+![](products/cornells_box.png)
+![](products/cornells_box_fog.png)
+![](products/lights.png)
+![](products/checkered_spheres.png)

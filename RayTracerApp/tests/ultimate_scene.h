@@ -7,9 +7,14 @@
 
 #include "scenes/scene.h"
 
-#include "materials/lambertian.h"
+#include <materials/isotropic.h>
+#include <materials/diffuse_light.h>
+#include <materials/metal.h>
+#include <materials/lambertian.h>
+#include <materials/dielectric.h>
 
-#include "materials/diffuse_light.h"
+#include <textures/noise_texture.h>
+#include <textures/image_texture.h>
 
 #include <objects/BVHNode.h>
 #include <objects/BVHRect.h>
@@ -17,6 +22,8 @@
 #include <objects/instance.h>
 #include <objects/ConstantMedium.h>
 #include <objects/moving_sphere.h>
+#include <objects/sphere.h>
+#include <objects/instance.h>
 
 
 namespace Scene
@@ -26,6 +33,7 @@ namespace Scene
     public:
         Object::HittableList GetWorld() override
         {
+            // GROUND
             Object::HittableList boxes1;
             auto ground = std::make_shared<Materials::Lambertian>(Color(0.48, 0.83, 0.53));
 
@@ -47,20 +55,30 @@ namespace Scene
             Object::HittableList objects;
 
             objects.Add(std::make_shared<BVH::BVHNode>(boxes1, 0, 1));
-
+/*
+            objects.Add(std::make_shared<Object::Box>(
+                    Point3(0, 0, 0), Point3(100, 100, 100), ground
+                    ));
+*/
+            // LIGHT
             auto light = std::make_shared<Materials::Light::DiffuseLight>(Color(7, 7, 7));
             objects.Add(std::make_shared<BVH::XZRect>(123, 423, 147, 412, 554, light));
-
+/*
+            // Moving Sphere
             auto center1 = Point3(400, 400, 200);
             auto center2 = center1 + Vec3(30, 0, 0);
             auto moving_sphere_material = std::make_shared<Materials::Lambertian>(Color(0.7, 0.3, 0.1));
             objects.Add(std::make_shared<Object::MovingSphere>(center1, center2, 0, 1, 50, moving_sphere_material));
 
+            // DIELECTRIC
             objects.Add(std::make_shared<Object::Sphere>(Point3(260, 150, 45), 50,
                                                          std::make_shared<Materials::Dielectric>(1.5)));
+
+            // METAL
             objects.Add(std::make_shared<Object::Sphere>(
                     Point3(0, 150, 145), 50, std::make_shared<Materials::Metal>(Color(0.8, 0.8, 0.9), 1.0)
             ));
+
 
             auto boundary = std::make_shared<Object::Sphere>(Point3(360, 150, 145), 70,
                                                              std::make_shared<Materials::Dielectric>(1.5));
@@ -76,6 +94,7 @@ namespace Scene
             objects.Add(std::make_shared<Object::Sphere>(Point3(220, 280, 300), 80,
                                                          std::make_shared<Materials::Lambertian>(pertext)));
 
+
             Object::HittableList boxes2;
             auto white = std::make_shared<Materials::Lambertian>(Color(.73, .73, .73));
             int ns = 1000;
@@ -89,7 +108,7 @@ namespace Scene
                                 Vec3(-100, 270, 395)
                         )
             );
-
+*/
             return objects;
         }
 
