@@ -1,0 +1,3 @@
+[submodule "RayTracerLib/vendor/stb_image"]
+	path = RayTracerLib/vendor/stb_image
+	url = https://github.com/nothings/stb.git
