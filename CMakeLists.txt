@@ -1,12 +1,8 @@
-cmake_minimum_required(VERSION 3.13)
+cmake_minimum_required(VERSION 3.2.2)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+
 project(raytracer)
 
-set(CMAKE_CXX_STANDARD 17)
-
-file(GLOB_RECURSE src "src/**")
-
-add_executable(${PROJECT_NAME} ${src})
-
-target_include_directories(${PROJECT_NAME} PUBLIC src)
-
-include_directories(${PROJECT_NAME} vendor)
+add_subdirectory(RayTracerLib)
+add_subdirectory(RayTracerApp)

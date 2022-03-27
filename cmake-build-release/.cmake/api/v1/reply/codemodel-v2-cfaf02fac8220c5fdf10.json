@@ -1,0 +1,115 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1,
+						2
+					],
+					"jsonFile" : "directory-.-Release-f5ebdc15457944623624.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2.2"
+					},
+					"projectIndex" : 0,
+					"source" : "."
+				},
+				{
+					"build" : "RayTracerLib",
+					"jsonFile" : "directory-RayTracerLib-Release-2b3eb8d471d90b95e016.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.2.2"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "RayTracerLib",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"build" : "RayTracerApp",
+					"jsonFile" : "directory-RayTracerApp-Release-e2fd8a9ce2761b07df0a.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.13"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 1,
+					"source" : "RayTracerApp",
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"name" : "Release",
+			"projects" : 
+			[
+				{
+					"childIndexes" : 
+					[
+						1
+					],
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "raytracer",
+					"targetIndexes" : 
+					[
+						1
+					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						2
+					],
+					"name" : "RayTracerApp",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						0
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 2,
+					"id" : "RayTracerApp::@90f8e43c9f6b5468930a",
+					"jsonFile" : "target-RayTracerApp-Release-82a398569b5bd2ec8108.json",
+					"name" : "RayTracerApp",
+					"projectIndex" : 1
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "RayTracerLib::@2fd203b5932b73182505",
+					"jsonFile" : "target-RayTracerLib-Release-20b688139a233153d6bf.json",
+					"name" : "RayTracerLib",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/Users/johansolbakken/Developer/raytracer/cmake-build-release",
+		"source" : "/Users/johansolbakken/Developer/raytracer"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}
